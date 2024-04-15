@@ -1,38 +1,33 @@
-﻿#include "Rolling_ball.h"
+#include "rolling_ball.h"
+#include <algorithm>
+#include <cmath>
 
+RollingBall::RollingBall(int radius) {
+    shrinkfactor = radius > 100 ? 8 : (radius > 30 ? 4 : (radius > 10 ? 2 : 1));
+    int arctrimper = radius > 100 ? 40 : (radius > 30 ? 32 : 24);
+    build(radius, arctrimper, shrinkfactor);
+}
 
-class RollingBall {
-public:
-    std::vector<float> data;
-    int width, shrinkfactor;
-    RollingBall(int radius) {
-        shrinkfactor = radius > 100 ? 8 : (radius > 30 ? 4 : (radius > 10 ? 2 : 1));
-        int arctrimper = radius > 100 ? 40 : (radius > 30 ? 32 : 24);
-        build(radius, arctrimper, shrinkfactor);
-    }
-private:
-    void build(int radius, int arctrimper, int shrinkfactor) {
-        int sballradius = radius / shrinkfactor;
-        sballradius = std::max(1, sballradius);
-        int rsquare = sballradius * sballradius;
-        int diam = sballradius * 2;
-        int xtrim = int(arctrimper * sballradius / 100);
-        int halfwidth = sballradius - xtrim;
-        width = 2 * halfwidth + 1;
-        int ballsize = width * width;
-        data.resize(width * width, 0);
-        int p = 0;
+void RollingBall::build(int radius, int arctrimper, int shrinkfactor) {
+    int sballradius = radius / shrinkfactor;
+    sballradius = std::max(1, sballradius);
+    int rsquare = sballradius * sballradius;
+    int diam = sballradius * 2;
+    int xtrim = int(arctrimper * sballradius / 100);
+    int halfwidth = sballradius - xtrim;
+    width = 2 * halfwidth + 1;
+    data.resize(width * width, 0);
+    int p = 0;
 
-        for (int y = 0; y < width; ++y) {
-            for (int x = 0; x < width; ++x) {
-                int xval = x - halfwidth;
-                int yval = y - halfwidth;
-                int temp = rsquare - (xval * xval) - (yval * yval);
-                data[p++] = temp > 0 ? std::sqrt(temp) : 0;
-            }
+    for (int y = 0; y < width; ++y) {
+        for (int x = 0; x < width; ++x) {
+            int xval = x - halfwidth;
+            int yval = y - halfwidth;
+            int temp = rsquare - (xval * xval) - (yval * yval);
+            data[p++] = temp > 0 ? std::sqrt(temp) : 0;
         }
     }
-};
+}
 
 cv::Mat roll_ball(RollingBall& ball, cv::Mat& smallImage) {
     int width = smallImage.cols;
@@ -117,7 +112,7 @@ cv::Mat roll_ball(RollingBall& ball, cv::Mat& smallImage) {
 };
 
 
-cv::Mat rolling_ball_background(cv::Mat img, int radius, bool lightbackground=false, bool returnbackgroung=false) {
+cv::Mat rolling_ball_background(cv::Mat img, int radius, bool lightbackground, bool returnbackgroung) {
     bool invert = false;
     if (lightbackground)
         invert = true;
@@ -141,14 +136,4 @@ cv::Mat rolling_ball_background(cv::Mat img, int radius, bool lightbackground=fa
         return background;
     else
         return substracted_background;
-}
-
-
-int main(int argc, char** argv) {
-    cv::Mat img = cv::imread("C:/Users/smrn2/Desktop/Полевой/example.png", cv::IMREAD_GRAYSCALE);
-    cv::Mat substracted_background_img = rolling_ball_background(img, 50, true, false);
-    cv::imshow("original_image", img);
-    cv::imshow("substracted_background", substracted_background_img);
-    cv::waitKey();
-    return 0;
 }

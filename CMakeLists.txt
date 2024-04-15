@@ -1,24 +1,16 @@
-﻿# CMakeList.txt: проект CMake для CMakeProject1; включите исходный код и определения,
-# укажите здесь логику для конкретного проекта.
-#
-cmake_minimum_required (VERSION 3.8)
+cmake_minimum_required(VERSION 3.10)
 
-# Включение горячей перезагрузки для компиляторов MSVC, если поддерживается.
-if (POLICY CMP0141)
-  cmake_policy(SET CMP0141 NEW)
-  set(CMAKE_MSVC_DEBUG_INFORMATION_FORMAT "$<IF:$<AND:$<C_COMPILER_ID:MSVC>,$<CXX_COMPILER_ID:MSVC>>,$<$<CONFIG:Debug,RelWithDebInfo>:EditAndContinue>,$<$<CONFIG:Debug,RelWithDebInfo>:ProgramDatabase>>")
-endif()
+project(Rolling_ball)
 
-project ("Rolling_Ball")
-
+#set(OpenCV_DIR "C:/Users/smrn2/Downloads/scr/vcpkg/installed/x64-windows/share/opencv4")
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
-# Добавьте источник в исполняемый файл этого проекта.
-add_executable (Rolling_Ball "Rolling_ball.cpp" "Rolling_ball.h" )
-target_link_libraries(Rolling_Ball ${OpenCV_LIBS})
-if (CMAKE_VERSION VERSION_GREATER 3.12)
-  set_property(TARGET Rolling_Ball PROPERTY CXX_STANDARD 20)
-endif()
+add_library(RollingBallLib rolling_ball.cpp)
+target_link_libraries(RollingBallLib ${OpenCV_LIBS})
 
-# TODO: Добавьте тесты и целевые объекты, если это необходимо.
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/images DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+add_executable(RollingBallTest main.cpp)
+target_link_libraries(RollingBallTest RollingBallLib)
+
+install(TARGETS RollingBallTest DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
