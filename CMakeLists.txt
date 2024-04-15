@@ -1,8 +1,7 @@
-cmake_minimum_required(VERSION 3.10)
+﻿cmake_minimum_required(VERSION 3.10)
 
 project(Rolling_ball)
 
-#set(OpenCV_DIR "C:/Users/smrn2/Downloads/scr/vcpkg/installed/x64-windows/share/opencv4")
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})
 
