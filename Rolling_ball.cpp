@@ -18,12 +18,12 @@ void RollingBall::build(int radius, int arctrimper, int shrinkfactor) {
     width = 2 * halfwidth + 1;
     data.resize(width * width, 0);
     int p = 0;
-
+    int xval, yval, temp;
     for (int y = 0; y < width; ++y) {
         for (int x = 0; x < width; ++x) {
-            int xval = x - halfwidth;
-            int yval = y - halfwidth;
-            int temp = rsquare - (xval * xval) - (yval * yval);
+            xval = x - halfwidth;
+            yval = y - halfwidth;
+            temp = rsquare - (xval * xval) - (yval * yval);
             data[p++] = temp > 0 ? std::sqrt(temp) : 0;
         }
     }
