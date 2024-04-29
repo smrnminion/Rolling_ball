@@ -29,26 +29,7 @@ void RollingBall::build(int radius, int arctrimper, int shrinkfactor) {
     }
 }
 
-RollingBallProcessor::RollingBallProcessor(int radius, bool lightbackground, bool returnbackground)
-    : ball(radius), lightbackground(lightbackground), returnbackground(returnbackground) {}
-
-cv::Mat RollingBallProcessor::rolling_ball_background(cv::Mat img) {
-    cv::Mat smallImage;
-    cv::resize(img, smallImage, cv::Size(), 1.0 / ball.shrinkfactor, 1.0 / ball.shrinkfactor, cv::INTER_AREA);
-    if (lightbackground) {
-        smallImage = 255 - smallImage;
-    }
-    cv::Mat background = roll_ball(ball, smallImage);
-    cv::Mat resizedBackground;
-    cv::resize(background, resizedBackground, img.size(), 0, 0, cv::INTER_NEAREST);
-    if (returnbackground) {
-        return resizedBackground;
-    } else {
-        return img - resizedBackground;
-    }
-}
-
-cv::Mat RollingBallProcessor::roll_ball(RollingBall& ball, cv::Mat& smallImage) {
+cv::Mat roll_ball(RollingBall& ball, cv::Mat& smallImage) {
     int width = smallImage.cols;
     int height = smallImage.rows;
     cv::Mat background = cv::Mat::zeros(height, width, CV_32FC1);
@@ -131,7 +112,7 @@ cv::Mat RollingBallProcessor::roll_ball(RollingBall& ball, cv::Mat& smallImage) 
 };
 
 
-cv::Mat RollingBallProcessor::rolling_ball_background(cv::Mat img, int radius, bool lightbackground, bool returnbackgroung) {
+cv::Mat rolling_ball_background(cv::Mat img, int radius, bool lightbackground, bool returnbackgroung) {
     bool invert = false;
     if (lightbackground)
         invert = true;
