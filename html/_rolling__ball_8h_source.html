@@ -79,7 +79,7 @@ $(function() { codefold.init(0); });
   <div class="headertitle"><div class="title">Rolling_ball.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<a href="_rolling__ball_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#ifndef ROLLING_BALL_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#define ROLLING_BALL_H</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
@@ -99,31 +99,18 @@ $(function() { codefold.init(0); });
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>};</div>
 </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="};">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="class_rolling_ball_processor.html">   38</a></span><span class="keyword">class </span><a class="code hl_class" href="class_rolling_ball_processor.html">RollingBallProcessor</a> {</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <a class="code hl_function" href="class_rolling_ball_processor.html#ae36e3d7df7671eb3ebbb64418f7c2737">RollingBallProcessor</a>(<span class="keywordtype">int</span> radius, <span class="keywordtype">bool</span> lightbackground = <span class="keyword">false</span>, <span class="keywordtype">bool</span> returnbackground = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    cv::Mat <a class="code hl_function" href="class_rolling_ball_processor.html#ac5eb5c5d5e8da607c66e176264871346">rolling_ball_background</a>(cv::Mat img);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_class" href="class_rolling_ball.html">RollingBall</a> ball; </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordtype">bool</span> lightbackground; </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keywordtype">bool</span> returnbackground; </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">static</span> cv::Mat roll_ball(<a class="code hl_class" href="class_rolling_ball.html">RollingBall</a>&amp; ball, cv::Mat&amp; smallImage);</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>};</div>
-</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">#endif </span><span class="comment">// ROLLING_BALL_H</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>cv::Mat <a class="code hl_function" href="_rolling__ball_8h.html#a80f506bb035731b9729c3dd01e1494a8">roll_ball</a>(<a class="code hl_class" href="class_rolling_ball.html">RollingBall</a>&amp; ball, cv::Mat&amp; smallImage);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>cv::Mat <a class="code hl_function" href="_rolling__ball_8h.html#a4c9ac2a224767d6b68009d9d61336b07">rolling_ball_background</a>(cv::Mat img, <span class="keywordtype">int</span> radius, <span class="keywordtype">bool</span> lightbackground = <span class="keyword">false</span>, <span class="keywordtype">bool</span> returnbackground = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">#endif </span><span class="comment">// ROLLING_BALL_H</span></div>
+<div class="ttc" id="a_rolling__ball_8h_html_a4c9ac2a224767d6b68009d9d61336b07"><div class="ttname"><a href="_rolling__ball_8h.html#a4c9ac2a224767d6b68009d9d61336b07">rolling_ball_background</a></div><div class="ttdeci">cv::Mat rolling_ball_background(cv::Mat img, int radius, bool lightbackground=false, bool returnbackground=false)</div><div class="ttdoc">Выполняет вычитание фона у изображений с помощью метода прокатывания шара.</div><div class="ttdef"><b>Definition</b> Rolling_ball.cpp:134</div></div>
+<div class="ttc" id="a_rolling__ball_8h_html_a80f506bb035731b9729c3dd01e1494a8"><div class="ttname"><a href="_rolling__ball_8h.html#a80f506bb035731b9729c3dd01e1494a8">roll_ball</a></div><div class="ttdeci">cv::Mat roll_ball(RollingBall &amp;ball, cv::Mat &amp;smallImage)</div><div class="ttdoc">Прокатывет &quot;шар&quot; по изображению для вычитания фона.</div><div class="ttdef"><b>Definition</b> Rolling_ball.cpp:51</div></div>
 <div class="ttc" id="aclass_rolling_ball_html"><div class="ttname"><a href="class_rolling_ball.html">RollingBall</a></div><div class="ttdoc">Класс для создания структуры &quot;шара&quot; для вычитания фона.</div><div class="ttdef"><b>Definition</b> Rolling_ball.h:13</div></div>
 <div class="ttc" id="aclass_rolling_ball_html_a6708a6e885ed4a3891b8456455bb9799"><div class="ttname"><a href="class_rolling_ball.html#a6708a6e885ed4a3891b8456455bb9799">RollingBall::data</a></div><div class="ttdeci">std::vector&lt; float &gt; data</div><div class="ttdoc">Вектор, содержащий &quot;высоты&quot; шара.</div><div class="ttdef"><b>Definition</b> Rolling_ball.h:15</div></div>
 <div class="ttc" id="aclass_rolling_ball_html_a9feb65ee7cd6f9da0e49cdb1dc522cb3"><div class="ttname"><a href="class_rolling_ball.html#a9feb65ee7cd6f9da0e49cdb1dc522cb3">RollingBall::shrinkfactor</a></div><div class="ttdeci">int shrinkfactor</div><div class="ttdoc">Коэффициент сжатия, используемый для оптимизации обработки.</div><div class="ttdef"><b>Definition</b> Rolling_ball.h:17</div></div>
 <div class="ttc" id="aclass_rolling_ball_html_ad7b24943f0b6f1c6df0cf1fff2b84d5d"><div class="ttname"><a href="class_rolling_ball.html#ad7b24943f0b6f1c6df0cf1fff2b84d5d">RollingBall::width</a></div><div class="ttdeci">int width</div><div class="ttdoc">Ширина участка (patch width), используемая для обработки изображений.</div><div class="ttdef"><b>Definition</b> Rolling_ball.h:16</div></div>
 <div class="ttc" id="aclass_rolling_ball_html_ada37fbb5ee5b2e5704eeaf93ed15396f"><div class="ttname"><a href="class_rolling_ball.html#ada37fbb5ee5b2e5704eeaf93ed15396f">RollingBall::RollingBall</a></div><div class="ttdeci">RollingBall(int radius)</div><div class="ttdoc">Конструктор класса RollingBall.</div><div class="ttdef"><b>Definition</b> Rolling_ball.cpp:5</div></div>
-<div class="ttc" id="aclass_rolling_ball_processor_html"><div class="ttname"><a href="class_rolling_ball_processor.html">RollingBallProcessor</a></div><div class="ttdoc">Класс для обработки изображений с использованием RollingBall.</div><div class="ttdef"><b>Definition</b> Rolling_ball.h:38</div></div>
-<div class="ttc" id="aclass_rolling_ball_processor_html_ac5eb5c5d5e8da607c66e176264871346"><div class="ttname"><a href="class_rolling_ball_processor.html#ac5eb5c5d5e8da607c66e176264871346">RollingBallProcessor::rolling_ball_background</a></div><div class="ttdeci">cv::Mat rolling_ball_background(cv::Mat img)</div><div class="ttdoc">Выполняет вычитание фона для изображений с помощью метода прокатывания шара.</div><div class="ttdef"><b>Definition</b> Rolling_ball.cpp:35</div></div>
-<div class="ttc" id="aclass_rolling_ball_processor_html_ae36e3d7df7671eb3ebbb64418f7c2737"><div class="ttname"><a href="class_rolling_ball_processor.html#ae36e3d7df7671eb3ebbb64418f7c2737">RollingBallProcessor::RollingBallProcessor</a></div><div class="ttdeci">RollingBallProcessor(int radius, bool lightbackground=false, bool returnbackground=false)</div><div class="ttdoc">Конструктор класса RollingBallProcessor.</div><div class="ttdef"><b>Definition</b> Rolling_ball.cpp:32</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

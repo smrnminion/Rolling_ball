@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['width_0',['width',['../class_rolling_ball.html#ad7b24943f0b6f1c6df0cf1fff2b84d5d',1,'RollingBall']]]
+  ['shrinkfactor_0',['shrinkfactor',['../class_rolling_ball.html#a9feb65ee7cd6f9da0e49cdb1dc522cb3',1,'RollingBall']]]
 ];

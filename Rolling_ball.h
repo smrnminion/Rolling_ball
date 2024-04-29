@@ -27,42 +27,27 @@ private:
      * @brief Генерирует структуру "шара".
      * @param radius Радиус "шара".
      * @param arctrimper Процентное усечение арки "шара".
-     * @param shrinkfactor Коэффициент сжатия для оптимизации.
+     * @param shrinkfactor Коэффициент сжатия для оптимизации размера.
      */
     void build(int radius, int arctrimper, int shrinkfactor);
 };
 
 /**
- * @brief Класс для обработки изображений с использованием RollingBall.
+ * @brief Прокатывет "шар" по изображению для вычитания фона.
+ * @param ball Объект RollingBall, содержащий данные "шара".
+ * @param smallImage Уменьшенное изображение, к которому применяется "шар".
+ * @return Матрица, представляющая фон изображения.
  */
-class RollingBallProcessor {
-public:
-    /**
-     * @brief Конструктор класса RollingBallProcessor.
-     * @param radius Радиус шара, используемый для обработки.
-     * @param lightbackground Определяет, обрабатывается ли изображение с светлым фоном.
-     * @param returnbackground Возврат фона вместо вычитанного изображения.
-     */
-    RollingBallProcessor(int radius, bool lightbackground = false, bool returnbackground = false);
+cv::Mat roll_ball(RollingBall& ball, cv::Mat& smallImage);
 
-    /**
-     * @brief Выполняет вычитание фона для изображений с помощью метода прокатывания шара.
-     * @param img Исходное изображение для обработки.
-     * @return Обработанное изображение или фон.
-     */
-    cv::Mat rolling_ball_background(cv::Mat img);
-
-private:
-    RollingBall ball; ///< Экземпляр RollingBall для использования в обработке.
-    bool lightbackground; ///< Флаг для обработки светлого фона.
-    bool returnbackground; ///< Флаг для возврата фона.
-
-    /**
-     * @brief Применяет "шар" к маленькому изображению для вычитания фона.
-     * @param smallImage Уменьшенное изображение для обработки.
-     * @return Матрица, представляющая фон изображения.
-     */
-    static cv::Mat roll_ball(RollingBall& ball, cv::Mat& smallImage);
-};
+/**
+ * @brief Выполняет вычитание фона у изображений с помощью метода прокатывания шара.
+ * @param img Исходное изображение для обработки.
+ * @param radius Радиус "шара".
+ * @param lightbackground Указывает, является ли фон светлым.
+ * @param returnbackground Возвращать ли фон вместо вычитанного изображения.
+ * @return Обработанное изображение или фон, в зависимости от параметра returnbackground.
+ */
+cv::Mat rolling_ball_background(cv::Mat img, int radius, bool lightbackground = false, bool returnbackground = false);
 
 #endif // ROLLING_BALL_H
